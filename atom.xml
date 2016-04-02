@@ -1,0 +1,24 @@
+---
+layout: feed
+---
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+	<title>Fabian Schmidt Blog</title>
+	<link href="{{ site.github.url }}/atom.xml" rel="self"/>
+	<link href="{{ site.github.url }}"/>
+	<updated>{{ site.time | date_to_xmlschema }}</updated>
+	<id>{{ site.github.url }}</id>
+	<author>
+		<name>Fabian Schmidt</name>
+		<email>Fabian-Schmidt@users.noreply.github.com</email>
+	</author>
+	{% for post in site.posts %}
+		<entry>
+			<title>{{ post.title }}</title>
+			<link href="{{ post.url | xml_escape }}"/>
+			<updated>{{ post.date | date_to_xmlschema }}</updated>
+			<id>{{ post.id | prepend: site.github.url }}</id>
+			<content type="html">{{ post.content }}</content>
+		</entry>
+	{% endfor %}
+</feed>

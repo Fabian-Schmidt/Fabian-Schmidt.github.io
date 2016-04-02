@@ -1,0 +1,3 @@
+	name: Fabian Schmidt
+	markdown: kramdown
+    permalink: /:year/:month/:day/:title
